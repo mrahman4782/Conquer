@@ -4,8 +4,8 @@ import cors from 'cors';
 import initializeFirebaseApp from './firebaseInit.js';
 initializeFirebaseApp();
 
-//import {createUser} from './functions/register.js';
-//import {loginVerify} from './loginHandler.js';
+import {createUser} from './functions/register.js';
+import {loginVerify} from './loginVerify.js';
 
 
 const app = express();
