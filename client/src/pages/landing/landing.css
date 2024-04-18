@@ -1,126 +1,108 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: 'League Spartan', sans-serif;
-    background: linear-gradient(90deg, #cfffcf, #e6cb6c); /* Updated gradient background */
-    color: #333; /* Default text color */
-    padding: 10px;
-  }
-  
-  .container {
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .heading {
-    margin-top: 10%;
-  }
-  
-  .sub-heading {
-    margin-bottom: 50px;
-  }
-  
-  .features {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    padding: 0;
-  }
-  
-  .feature {
-    width: 30%;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .feature .icon {
-    height: 100px;
-    width: 100px;
-    background-color: #fff;
-    display: block;
-    margin: 20px auto;
-    border-radius: 50%;
-    /* Placeholder for the icons, replace with actual background images */
-    background-image: url('../../../../page1.png'); 
-    background-size: cover;
-  }
-  
-  .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  body, html {
-    height: 100%;
-    margin: 0;
-    font-family: 'League Spartan', sans-serif;
-    background: linear-gradient(90deg, #cfffcf, #e6cb6c);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .signin-container {
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    max-width: 400px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .signin-logo {
-    margin-bottom: 20px;
-  }
-  
-  .signin-form {
-    margin-top: 20px;
-  }
-  
-  .input-group {
-    margin-bottom: 20px;
-  }
-  
-  .input-group input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .signin-footer {
-    margin-top: 10px;
-    font-size: 0.9em;
-  }
-  
-  .button {
-    display: block;
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    background-color: #4CAF50;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    background-color: #45a049;
-  }
-  
-  a {
-    color: #333;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+
+.landing-container {
+  font-family: 'League Spartan', sans-serif;
+}
+
+.landing-logo {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+.banner-container {
+  position: relative;
+  text-align: center;
+}
+
+.banner {
+  width: 100%;
+  display: block;
+}
+
+.logo {
+  position: absolute;
+  top: 25%;  /* Center vertically */
+  left: 48%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for the exact center */
+  max-width: 150px; /* Or whatever size you want the logo to be */
+  z-index: 10; /* To ensure the logo is above the banner image */
+}
+
+.banner-text-box {
+  position: absolute;
+  top: 30%; /* Center vertically */
+  left: 75%; /* Center horizontally */
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.tagline {
+  font-size: 2rem; /* Adjust as needed */
+  color: #000;
+  margin: 0 0 20px 0; /* Add space below the heading */
+}
+
+.ready-button {
+  background-color: #f8d09b; /* Gold color, adjust as needed */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 300;
+  z-index: 3;
+  border-radius: 25px; /* Gives the button rounded corners */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Adds shadow with some blur and spread */
+  transition: all 0.3s; /* Smooth transition for hover effects */
+}
+
+.ready-button:hover {
+  background-color: #e0c200; /* Slightly darker gold color on hover */
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25), 0 8px 25px 0 rgba(0, 0, 0, 0.22); /* Slightly more pronounced shadow on hover */
+}
+
+
+.banner-content {
+  position: absolute;
+  bottom: 20px; /* Position the content at the bottom of the banner */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%; /* Ensure the content is centered and does not overflow */
+  z-index: 5; /* Above the banner image but below the logo */
+}
+
+.support-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.support-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.support-text {
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.feature {
+  text-align: center;
+  width: 30%;
+}
+
+.feature-icon {
+  max-width: 100px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50%; /* Makes it circular */
+  background-color: #f0f0f0; /* Light background for the icons */
+  padding: 20px;
+}
