@@ -1,10 +1,10 @@
-import {useNavigate} from "react-router-dom";
+//import {useNavigate} from "react-router-dom";
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import './register.css';
-import userLogin from '../../functions/loginHandler.js';
+//import userLogin from '../../functions/loginHandler.js';
 
 function Register(){
 
