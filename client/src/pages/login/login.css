@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #EFEEE1; 
+}
+
+.login-box {
+    background-color: #E1E4D6; 
+    padding: 40px;
+    border-radius: 40px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    gap: 20px; 
+    border: 1px solid black; 
+}
+
+.logo {
+    width: 110px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 32%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h2 {
+    font-size: 40px;
+    margin-bottom: 20px; /* Add margin bottom to create space */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between form elements */
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 40px;
+    background-color: #EFEEE1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px; 
+    color: black; 
+}
+
+input[type="email"],
+input[type="password"] {
+    border: 2px solid black; 
+    color: black; 
+    font-weight: bold; 
+}
+
+button {
+    padding: 10px;
+    background-color: #F8DEC3; /* Adjust button color */
+    color: #000;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 150px; /* Adjust width */
+    height: 50px; /* Adjust height */
+    font-size: 24px; /* Increase font size */
+    border: 2px solid black; /* Add black border */
+    margin: 0 auto; /* Center the button horizontally */
+}
+
+button:hover {
+    background-color: #BFB5AA; /* Adjust hover color */
+}
+
+p {
+    margin-top: 20px;
+    font-family: 'League Spartan', sans-serif; /* Use League Spartan font */
+    font-size: 20px;
+    color: black; 
+    font-weight: bold; 
+}
+
+a {
+    color: #524C4C; 
+    text-decoration: underline; 
+    font-family: 'League Spartan', sans-serif; 
+    cursor: pointer; 
+    font-size: 20px;
+    color: black; 
+    font-weight: bold; 
+}
+
+a:hover {
+    text-decoration: underline;
+}

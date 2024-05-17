@@ -1,3 +1,80 @@
+import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import './login.css';
+import userLogin from '../../functions/loginHandler.js';
+import conquerLogoBgRemoved from './conquerLogoBgRemoved.png'; 
+
+function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    let navigate = useNavigate();
+
+    async function onSignInPressed(e) {
+        e.preventDefault(); // Prevent default form submission behavior
+        if (email === "" || password === "") {
+            console.log("Missing Input");
+        } else {
+            try {
+                await userLogin(email, password);
+                navigate('/home');
+                return;
+            } catch (error) {
+                if (error.code === "auth/invalid-email") {
+                    console.log('Invalid Login');
+                } else {
+                    console.log('An error occurred during login');
+                }
+            }
+        }
+    }
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);  // Updating the password state with each input
+    };
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);  // Updating the password state with each input
+    };
+
+    function navigateToRegister() {
+        navigate('/register');
+    }
+
+    return (
+        <div className="login-container">
+            <div className="login-box">
+                <img src={conquerLogoBgRemoved} alt="Conquer Logo" className="logo" /> {/* Use the imported logo */}
+                <h2>Sign In</h2>
+                <form onSubmit={onSignInPressed}>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={handleEmailChange}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                        required
+                    />
+                    <button type="submit">JOIN</button>
+                </form>
+                <p>
+                    Don’t have an account? <a href="/register" onClick={navigateToRegister}>Sign up.</a>
+                </p>
+            </div>
+        </div>
+    );
+}
+
+export default Login;
+
+
+/* Backup 2
 import {useNavigate} from "react-router-dom";
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
@@ -91,7 +168,7 @@ function Login(){
     )
 }
 
-export default Login;
+export default Login; */
 
 
 // import { useState } from 'react'
