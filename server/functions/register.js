@@ -3,7 +3,7 @@ import { getFirestore } from 'firebase-admin/firestore';
 import admin from 'firebase-admin'; // Import the default export for auth
 
 
-import initializeFirebaseApp from './firebaseAdminInit.js';
+import initializeFirebaseApp from './firebaseInit.js';
 initializeFirebaseApp();
 
 const db = getFirestore();

@@ -8,6 +8,8 @@ import userLogin from '../../functions/loginHandler.js';
 
 function Register(){
 
+    let navigate = useNavigate();
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -28,6 +30,9 @@ function Register(){
         navigate('/login');
     }
 
+    function onSignInPressed(){
+        navigate('/login');
+    }
     return(
         <Grid container spacing={2}>
         <Grid item xs={12}>

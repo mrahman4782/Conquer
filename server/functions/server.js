@@ -4,7 +4,7 @@ import cors from 'cors';
 import initializeFirebaseApp from './firebaseInit.js';
 initializeFirebaseApp();
 
-import {createUser} from './functions/register.js';
+import {createUser} from './register.js';
 import {loginVerify} from './loginVerify.js';
 
 
@@ -37,7 +37,8 @@ app.post('/api/registerUser', async(req, res) => {
     console.log(req);
     let email = req.body.email;
     let password = req.body.password;
-    let checkUserLogin = await createUser(email, password);
+    let username = req.body.username;
+    let checkUserLogin = await createUser(email, password, username);
     
     console.log(checkUserLogin);
     res.status(checkUserLogin.status).send(`Registered!`);
