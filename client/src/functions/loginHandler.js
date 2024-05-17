@@ -1,5 +1,5 @@
 import { getAuth, signInWithEmailAndPassword, getIdToken } from "firebase/auth";
-import { initializeApp } from "firebase/app";
+//import { initializeApp } from "firebase/app";
 //import firebaseConfig from '../../config/firebaseConfig.json';
 import axios from 'axios';
 import sessionStorage from './sessionStorage.js';
