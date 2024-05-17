@@ -1,98 +1,71 @@
-//import {useNavigate} from "react-router-dom";
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
 import { useNavigate } from "react-router-dom";
-
 import './register.css';
-//import userLogin from '../../functions/loginHandler.js';
+import conquerLogoBgRemoved from './conquerLogoBgRemoved.png'; 
 
-function Register(){
-
-    let navigate = useNavigate();
-    
+function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);  // Updating the password state with each input
-    };
+    let navigate = useNavigate();
 
     const handleEmailChange = (event) => {
-        setEmail(event.target.value);  // Updating the password state with each input
+        setEmail(event.target.value); // Updating the email state with each input
+    };
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value); // Updating the password state with each input
     };
 
     const handleUsernameChange = (event) => {
-        setEmail(event.target.value);  // Updating the password state with each input
+        setUsername(event.target.value); // Updating the username state with each input
     };
 
-    function navigateToRegister(){
+    const navigateToLogin = () => {
         navigate('/login');
-    }
+    };
 
-    function onSignInPressed(){
-        navigate('/login');
-    }
-    return(
-        <Grid container spacing={2}>
-        <Grid item xs={12}>
-            <div className="headerText">
-                Welcome!
+    const onRegisterPressed = (e) => {
+        e.preventDefault(); // Prevent default form submission behavior
+        // Implement the registration logic here
+        navigate('/login'); // Redirect to login after registration
+    };
+
+    return (
+        <div className="register-container">
+            <div className="register-box">
+                <img src={conquerLogoBgRemoved} alt="Conquer Logo" className="logo" /> {/* Use the correct path for your logo */}
+                <h2>Sign Up</h2>
+                <form onSubmit={onRegisterPressed}>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={handleEmailChange}
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        onChange={handleUsernameChange}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                        required
+                    />
+                    <button type="submit">JOIN</button>
+                </form>
+                <p>
+                    Have an account? <a href="/login" onClick={navigateToLogin}>Login here!</a>
+                </p>
             </div>
-        </Grid>
-        <Grid item xs={12}>
-            <div className="Email">
-            <TextField
-                required
-                id="emailField"
-                label="Email"
-                value={email}
-                onChange={handleEmailChange}
-                />
-            </div>
-        </Grid>
-        <Grid item xs={12}>
-            <div className="Username">
-            <TextField
-                required
-                id="passwordField"
-                label="Username"
-                type="password"
-                value={username}
-                onChange={handleUsernameChange}
-                />
-            </div>
-        </Grid>
-        <Grid item xs={12}>
-            <div className="Password">
-            <TextField
-                required
-                id="passwordField"
-                label="Password"
-                type="password"
-                value={password}
-                onChange={handlePasswordChange}
-                />
-            </div>
-        </Grid>
-        
-        <Grid xs={12}>
-            <div className="Submit">
-            <Button variant="contained" size="large" onClick={onSignInPressed}>
-                Register
-            </Button>
-            </div>
-        </Grid>
-        <Grid xs={12}>
-            <div className="register">
-                
-                <Button size="small" onClick={navigateToRegister} >Have an account? Login Here!</Button>
-            </div>
-        </Grid>
-    </Grid>
-    )
+        </div>
+    );
 }
 
 export default Register;
