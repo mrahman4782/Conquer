@@ -1,196 +1,264 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    background-color: white;
 }
 
-.home-container {
+.outer-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #EFEEE1;
-    padding: 40px;
-    min-height: 100vh;
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 87%;
-    padding: 10px 15px;
-    background-color: #C4BFB7;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    position: absolute;
-    border-bottom: -12px;
-    top: 55px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
+    justify-content: space-between;
+    background-color: #ADACAC;
+    padding: 25px 20px; 
+    width: 80%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
 }
 
-.navbar .logo {
-    width: 50px; /* Adjust the logo size */
-    height: auto;
+.logo {
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
 }
 
 .search-bar {
-    width: 50%;
+    background-color: #F4F4F4;
+    border: none;
     padding: 10px;
     border-radius: 20px;
-    border: 1px solid #ccc;
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-icons {
     display: flex;
-    gap: 20px; /* Increased gap between icons */
+    align-items: center;
+    margin-left: auto;
 }
 
-.nav-icon {
-    width: 24px;
-    height: 24px;
+.icon {
+    height: 30px;
+    margin-left: 20px;
     cursor: pointer;
 }
 
-.dropdown-content {
-    display: none;
+.notification-wrapper {
+    position: relative;
+}
+
+.notifications-dropdown {
     position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 12px;
-    border-radius: 5px;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 10;
 }
 
-.notifications:hover .dropdown-content {
-    display: block;
-}
-
-.main-wrapper {
+.container {
     display: flex;
-    justify-content: space-between;
-    width: 90%;
-    background-color: #E1E4D6;
-    border-radius: 20px;
+    background-color: #F4F4F4;
+    width: 80%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     padding: 20px;
-    margin-top: 80px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    outline: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .sidebar, .right-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-}
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.menu-item {
-    padding: 10px;
-    background-color: #F8DEC3;
-    border-radius: 20px;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;
-    color: black;
-}
-
-.menu-item:hover {
-    background-color: #ffb6c1;
-}
-
-.main-content {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.status-update {
-    background-color: #fff;
+    width: 20%;
     padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.status-update textarea {
-    width: 100%;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.sidebar ul, .right-sidebar ul {
+    list-style: none;
+    padding: 0;
 }
 
-.status-actions {
+.sidebar ul li, .right-sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the text */
+    border-radius: 10px; /* Rounded edges for hover effect */
+}
+
+.sidebar ul li:hover, .right-sidebar ul li:hover {
+    background-color: #E8E8E8; /* Global hover color */
+}
+
+.sidebar ul li.active {
+    background-color: #ADACAC;
+}
+
+.menu-icon {
+    width: 24px; /* Resize icons */
+    height: 24px; /* Resize icons */
+    margin-right: 10px;
+}
+
+.groups, .pinned-events, .friends {
+    margin-top: 20px;
+}
+
+.groups-header {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    align-items: center;
 }
 
-.status-actions button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    background-color: #F8DEC3;
-    font-weight: bold;
-    cursor: pointer;
+.arrow {
+    margin-left: 10px;
 }
 
-.status-actions button:hover {
-    background-color: #ffb6c1;
+.arrow.up {
+    transform: rotate(180deg);
 }
 
-.posts {
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.status {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.status.expanded {
+    padding: 40px 20px;
+}
+
+.status-header {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    position: relative;
+}
+
+.status-profile-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.status-input-container {
+    position: relative;
+    width: 100%;
+}
+
+.status-input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    font-size: 18px;
+    background-color: transparent;
+    padding-bottom: 5px;
+    resize: none;
+    overflow: hidden;
+}
+
+.status-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-around;
+    transition: all 0.3s ease;
+}
+
+.status-footer.with-text .status-option-label {
+    margin-right: 60px; /* Move the icons to the left */
+}
+
+.status-option-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.status-option-label:hover {
+    background-color: #E8E8E8; /* Hover color for photo and video buttons */
+    border-radius: 10px; /* Add rounded corners on hover */
+    padding: 5px; /* Add padding for larger hover effect */
+}
+
+.status-option-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.post-button {
+    display: none;
+    background-color: #524C4C;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.status-footer.with-text .post-button {
+    display: inline-block;
 }
 
 .post {
-    background-color: #fff;
+    background-color: white;
     padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .post-header {
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
-.user-avatar {
-    width: 40px;
-    height: 40px;
+.post-profile-icon {
+    height: 50px;
     border-radius: 50%;
-}
-
-.user-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.username {
-    font-weight: bold;
-}
-
-.timestamp {
-    font-size: 0.8em;
-    color: #666;
+    margin-right: 10px;
 }
 
 .post-content {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-.post-attachment {
+.post-image {
     width: 100%;
     border-radius: 10px;
     margin-top: 10px;
@@ -202,38 +270,68 @@ body {
     margin-top: 10px;
 }
 
-.post-actions button {
-    padding: 10px 20px;
+.post-action {
+    display: flex;
+    align-items: center;
+    background: none;
     border: none;
-    border-radius: 20px;
-    background-color: #F8DEC3;
-    font-weight: bold;
     cursor: pointer;
+    font-size: 16px;
 }
 
-.post-actions button:hover {
-    background-color: #ffb6c1;
-}
-
-.pinned-events, .friends-list {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.pinned-events h3, .friends-list h3 {
-    margin-top: 0;
-}
-
-.event, .friend {
-    padding: 10px;
+.post-action:hover {
+    background-color: #E8E8E8;
     border-radius: 10px;
-    background-color: #F8DEC3;
-    margin-top: 10px;
-    text-align: center;
+    padding: 5px;
 }
 
-.event:hover, .friend:hover {
-    background-color: #ffb6c1;
+.action-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.comment-box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-box {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    font-size: 16px;
+    resize: none;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.comment-box-container .post-button {
+    display: none;
+    background-color: #524C4C;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: flex-end;
+}
+
+.comment-box-container .comment-box:not(:placeholder-shown) + .post-button {
+    display: inline-block;
+}
+
+.comment-box-container .post-button:hover {
+    background-color: #E8E8E8;
 }

@@ -5,49 +5,46 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #EFEEE1; 
+    background-color: white; 
 }
 
 .register-box {
-    background-color: #E1E4D6; 
+    background-color: #F4F4F4; 
     padding: 40px;
     border-radius: 40px;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 600px;
-    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center; 
     gap: 20px; 
-    border: 1px solid black; 
+    position: relative;
 }
 
 .logo {
-    width: 110px;
-    margin-bottom: 20px;
-    position: absolute;
-    top: 30%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 150px; /* Adjust the width to make the logo larger */
+    margin: 0 auto 20px auto; /* Center the logo horizontally */
+    display: block; /* Ensure the logo is treated as a block element */
+    text-align: center; /* Center the logo horizontally */
 }
 
 h2 {
     font-size: 40px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px; /* Add margin bottom to create space */
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px; 
+    gap: 20px; /* Adds space between form elements */
 }
 
 input {
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 40px;
-    background-color: #EFEEE1;
+    background-color: white; /* Ensure input background is white */
     text-align: center;
     font-weight: bold;
     font-size: 20px; 
@@ -60,30 +57,31 @@ input[type="password"] {
     border: 2px solid black; 
     color: black; 
     font-weight: bold; 
+    background-color: white; /* Set the input background color to white */
 }
 
 button {
     padding: 10px;
-    background-color: #F8DEC3; 
-    color: #000;
+    background-color: #524C4C; /* Adjust button color */
+    color: white; /* Set button text color to white */
     border: none;
     border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
-    width: 150px; 
-    height: 50px; 
-    font-size: 24px; 
-    border: 2px solid black; 
-    margin: 0 auto; 
+    width: 150px; /* Adjust width */
+    height: 50px; /* Adjust height */
+    font-size: 24px; /* Increase font size */
+    border: 2px solid black; /* Add black border */
+    margin: 0 auto; /* Center the button horizontally */
 }
 
 button:hover {
-    background-color: #BFB5AA; 
+    background-color: #3E3A3A; /* Adjust hover color */
 }
 
 p {
     margin-top: 20px;
-    font-family: 'League Spartan', sans-serif; 
+    font-family: 'League Spartan', sans-serif; /* Use League Spartan font */
     font-size: 20px;
     color: black; 
     font-weight: bold; 
@@ -95,7 +93,6 @@ a {
     font-family: 'League Spartan', sans-serif; 
     cursor: pointer; 
     font-size: 20px;
-    color: black; 
     font-weight: bold; 
 }
 

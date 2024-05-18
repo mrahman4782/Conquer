@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import './login.css';
 import userLogin from '../../functions/loginHandler.js';
-import conquerLogoBgRemoved from './conquerLogoBgRemoved.png'; 
+import conquerLogoBgRemoved from './logo.png'; 
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -44,7 +44,7 @@ function Login() {
     return (
         <div className="login-container">
             <div className="login-box">
-                <img src={conquerLogoBgRemoved} alt="Conquer Logo" className="logo" /> {/* Use the imported logo */}
+                <img src={conquerLogoBgRemoved} alt="Conquer Logo" style={{ width: '100px', marginBottom: '20px', margin: '0 auto' }} /> {/* Use the imported logo */}
                 <h2>Sign In</h2>
                 <form onSubmit={onSignInPressed}>
                     <input
@@ -72,6 +72,7 @@ function Login() {
 }
 
 export default Login;
+
 
 
 /* Backup 2
