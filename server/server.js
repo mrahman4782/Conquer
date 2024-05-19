@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 
-import initializeFirebaseApp from './firebaseInit.js';
+import initializeFirebaseApp from './functions/firebaseInit.js';
 initializeFirebaseApp();
 
-import {createUser} from './register.js';
-import {loginVerify} from './loginVerify.js';
+import {createUser} from './functions/register.js';
+import {loginVerify} from './functions/loginVerify.js';
 
 
 const app = express();
