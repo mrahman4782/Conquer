@@ -27,13 +27,11 @@ function Register() {
     };
 
     const onRegisterPressed = async (e) => {
-        e.preventDefault(); // Prevent default form submission behavior
+        e.preventDefault(); 
 
         try {
-          const o = await userRegister(username, email, password);
-          console.log(o);
-    
-          navigate('/home'); // Redirect to home after registration
+          const login = await userRegister(username, email, password);
+          navigate('/home'); 
         } catch (error) {
           console.error("Registration failed:", error);
         }

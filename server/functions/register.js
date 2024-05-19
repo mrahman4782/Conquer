@@ -1,10 +1,7 @@
 import { initializeApp, cert } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import admin from 'firebase-admin'; // Import the default export for auth
-
-
-import initializeFirebaseApp from './firebaseInit.js';
-initializeFirebaseApp();
+import { loginVerify } from './loginVerify.js';
 
 const db = getFirestore();
 
@@ -26,37 +23,48 @@ function passwordValid(password){
   return true;  
 }
 
-export async function createUser(email, password, username) {
+/*
+// Function to create a profile for the user after they successfully 
+// register. Should fill with their respective sessionToken, email & username
+*/
 
-  let data = {
-    'email': '',
-    'username': ''
+export async function createUser(token, email, username) {
+
+  let newObjFields = {
+    activeSessionToken: token,
+    accountCreated: '',
+    adminOfChatGroupId: [],
+    email: email,
+    firstName: '',
+    friendsList: [],
+    lastName: '',
+    username: username,
+    userOfChatGroupId: [],
+    userType: 'standard'
   }
 
-  if (!passwordValid(password)){
-    response.status = 403;
-    response.data = 'Password does not meet requirements';
-    return response;
-  }
+
+  // No need for this now
+  // if (!passwordValid(password)){
+  //   response.status = 403;
+  //   response.data = 'Password does not meet requirements';
+  //   return response;
+  // }
   
   try {
-    const userRecord = await admin.auth().createUser({
-      email: `${email}`,
-      password: `${password}`,
-      emailVerified: false,
-      disabled: false,
-    });
 
-    // Update users collection
-    let docRef = db.collection('userProfile').doc(userRecord.uid);
-    data.email = email;
-    data.username = username;
-    await docRef.set(data);
+    // Get user uid
+    let checkUserLogin = await loginVerify(session);
+    let userId = checkUserLogin.data.uid;
+
+    let docRef = db.collection('userProfile').doc(userId);
+
+    await docRef.set(newObjFields);
 
     response.status = 201;
-    response.data = userRecord;
+    response.data = docRef;
 
-    console.log('Successfully created user:', userRecord.uid);
+    console.log('Successfully created profile for user:', userId);
     return response;
 
   } catch (error) {

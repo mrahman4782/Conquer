@@ -3,10 +3,13 @@ import React, { useState } from 'react';
 import './login.css';
 import userLogin from '../../functions/loginHandler.js';
 import conquerLogoBgRemoved from './logo.png'; 
+import Message from './../../components/alertMessage/alertMessage'
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showErrMsg, setShowErrMsg] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     let navigate = useNavigate();
 
@@ -20,11 +23,12 @@ function Login() {
                 navigate('/home');
                 return;
             } catch (error) {
-                if (error.code === "auth/invalid-email") {
-                    console.log('Invalid Login');
-                } else {
-                    console.log('An error occurred during login');
-                }
+                setErrorMessage(`Failed to login. Error: ${error.code}`);
+                setShowErrMsg(true);
+                setTimeout(() => {
+                    setShowErrMsg(false);
+                  }, 2000);
+                console.log(error);
             }
         }
     }
@@ -44,6 +48,7 @@ function Login() {
     return (
         <div className="login-container">
             <div className="login-box">
+                {showErrMsg ? <Message show={showErrMsg} message={errorMessage}/> : null}
                 <img src={conquerLogoBgRemoved} alt="Conquer Logo" style={{ width: '100px', marginBottom: '20px', margin: '0 auto' }} /> {/* Use the imported logo */}
                 <h2>Sign In</h2>
                 <form onSubmit={onSignInPressed}>

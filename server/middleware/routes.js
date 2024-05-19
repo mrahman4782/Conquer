@@ -1,6 +1,6 @@
 import express from 'express';
 import { createUser } from '../functions/register.js';
-import { loginVerify } from '../functions/loginVerify.js';
+// import { loginVerify } from '../functions/loginVerify.js';
 
 const router = express.Router();
 

@@ -13,15 +13,13 @@ import { FIREBASE_APP, FIREBASE_AUTH } from "./fireBaseConfig.js";
       const token = await getIdToken(user, true);
       console.log(token);
   
-      // Make request to backend. Response handling needed
-      // const response = await axios.post('http://localhost:5000/api/login', { token: token });
+      // Make request to backend
+      const response = await axios.post('http://localhost:5000/api/registerUser', { token: token, username: username, email: email });
   
-      // // Store Async session token to Async Storage
-      // sessionStorage.setSessionKey(token);
-      // console.log(`AHHHHHHHHHHHHHHHHHHHH: ${JSON.stringify(response)}`);
-      // return response;
+      // Store Async session token to Async Storage
+      sessionStorage.setSessionKey(token);
 
-      return token;
+      return response;
   
     } catch (error) {
       const errorCode = error.code;

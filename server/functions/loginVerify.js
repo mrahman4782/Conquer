@@ -2,6 +2,9 @@ import admin from 'firebase-admin';
 import 'firebase/auth';
 import { getFirestore } from "firebase-admin/firestore";
 
+import initializeFirebaseApp from './firebaseInit.js';
+initializeFirebaseApp(process.env.FIREBASE_SERVICE_ACCOUNT);
+
 let response = {
   status: '',
   data: ''

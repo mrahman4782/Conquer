@@ -1,24 +1,15 @@
 import { Box } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 
-const Message = ({ message, type = 'error', duration = 2 }) => {
-  const [isVisible, setIsVisible] = useState(true);
+const Message = ({ show, message, type = 'error'}) => {
 
   let msgColor = '#FF7871'; // Default color for error messages
   if (type === 'success') {
     msgColor = '#76DC76'; // Change color for success messages
   }
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, duration * 1000); 
-
-    // Clean up the timer when the component unmounts or when duration changes
-    return () => clearTimeout(timer);
-  }, [duration]);
-
-  return isVisible ? (
+  return (
+    show ?
     <Box
       sx={{
         position: 'fixed',
@@ -34,7 +25,7 @@ const Message = ({ message, type = 'error', duration = 2 }) => {
     >
       {message}
     </Box>
-  ) : null;
-};
+    : null
+  )};
 
 export default Message;
