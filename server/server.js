@@ -1,8 +1,12 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from "dotenv";
+import { middlewareInit, logRequests, logSuccess, logFailure } from './middleware/config.js';
+
+dotenv.config({ path: "./.env" });
 
 import initializeFirebaseApp from './functions/firebaseInit.js';
-initializeFirebaseApp();
+initializeFirebaseApp(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 import {createUser} from './functions/register.js';
 import {loginVerify} from './functions/loginVerify.js';
@@ -10,8 +14,12 @@ import {loginVerify} from './functions/loginVerify.js';
 
 const app = express();
 const port = 5000;
-app.use(cors());
 
+middlewareInit(app);
+app.use(logRequests);
+app.use(logSuccess);
+app.use(logFailure);
+app.use(cors()); 
 app.use(express.json());
 
 // GET Requests
