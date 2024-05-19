@@ -14,10 +14,138 @@ body {
     align-items: center;
 }
 
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ADACAC;
+    padding: 25px 20px; 
+    width: 80%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.search-bar {
+    background-color: #F4F4F4;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icon {
+    height: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.notification-wrapper {
+    position: relative;
+}
+
+.notifications-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: #F4F4F4;
+    width: 80%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.sidebar, .right-sidebar {
+    width: 15%; /* Reduce the width to give more space to the center */
+    padding: 20px;
+}
+
+.sidebar ul, .right-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li, .right-sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the text */
+    border-radius: 10px; /* Rounded edges for hover effect */
+}
+
+.sidebar ul li:hover, .right-sidebar ul li:hover {
+    background-color: #E8E8E8; /* Global hover color */
+}
+
+.sidebar ul li.active {
+    background-color: #ADACAC;
+}
+
+.menu-icon {
+    width: 24px; /* Resize icons */
+    height: 24px; /* Resize icons */
+    margin-right: 10px;
+}
+
+.groups, .pinned-events, .friends {
+    margin-top: 20px;
+}
+
+.groups-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow {
+    margin-left: 10px;
+}
+
+.arrow.up {
+    transform: rotate(180deg);
+}
+
 .content {
     flex: 1;
+    max-width: 800px; /* Adjust the max-width to ensure centering */
+    margin: 0 auto; /* Center the content */
     padding: 20px;
-    width: 80%;
 }
 
 .status {

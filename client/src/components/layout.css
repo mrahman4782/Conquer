@@ -19,7 +19,7 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: #ADACAC;
-    padding: 25px 20px;
+    padding: 25px 20px; 
     width: 80%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -36,7 +36,7 @@ body {
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
-    cursor: pointer; /* Add cursor pointer */
+    cursor: pointer;
 }
 
 .search-bar {
@@ -67,7 +67,6 @@ body {
 }
 
 .notifications-dropdown {
-    display: none;
     position: absolute;
     top: 40px;
     right: 0;
@@ -78,12 +77,9 @@ body {
     z-index: 10;
 }
 
-.notification-wrapper:hover .notifications-dropdown {
-    display: block;
-}
-
 .container {
     display: flex;
+    justify-content: center;
     background-color: #F4F4F4;
     width: 80%;
     border-bottom-left-radius: 15px;
@@ -94,7 +90,7 @@ body {
 }
 
 .sidebar, .right-sidebar {
-    width: 20%;
+    width: 15%; /* Reduce the width to give more space to the center */
     padding: 20px;
 }
 
@@ -104,19 +100,20 @@ body {
 }
 
 .sidebar ul li, .right-sidebar ul li {
-    padding: 10px 20px; /* Adjust padding to ensure full coverage */
+    padding: 10px 0;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center; /* Center the text */
     border-radius: 10px; /* Rounded edges for hover effect */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.sidebar ul li:hover, .right-sidebar ul li:hover, .sidebar ul li.active, .right-sidebar ul li.active {
-    background-color: #ADACAC; /* Consistent background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
-    color: white; /* Change text color to white for better contrast */
+.sidebar ul li:hover, .right-sidebar ul li:hover {
+    background-color: #E8E8E8; /* Global hover color */
+}
+
+.sidebar ul li.active {
+    background-color: #ADACAC;
 }
 
 .menu-icon {
@@ -146,5 +143,199 @@ body {
 
 .content {
     flex: 1;
+    max-width: 800px; /* Adjust the max-width to ensure centering */
+    margin: 0 auto; /* Center the content */
     padding: 20px;
+}
+
+.status {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.status.expanded {
+    padding: 40px 20px;
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.status-profile-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.status-input-container {
+    position: relative;
+    width: 100%;
+}
+
+.status-input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    font-size: 18px;
+    background-color: transparent;
+    padding-bottom: 5px;
+    resize: none;
+    overflow: hidden;
+}
+
+.status-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-around;
+    transition: all 0.3s ease;
+}
+
+.status-footer.with-text .status-option-label {
+    margin-right: 60px; /* Move the icons to the left */
+}
+
+.status-option-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.status-option-label:hover {
+    background-color: #E8E8E8; /* Hover color for photo and video buttons */
+    border-radius: 10px; /* Add rounded corners on hover */
+    padding: 5px; /* Add padding for larger hover effect */
+}
+
+.status-option-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.post-button {
+    display: none;
+    background-color: #524C4C;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.status-footer.with-text .post-button {
+    display: inline-block;
+}
+
+.post {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.post-profile-icon {
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-content {
+    margin-top: 20px;
+}
+
+.post-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.post-action {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.post-action:hover {
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.action-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.comment-box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-box {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    font-size: 16px;
+    resize: none;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.comment-box-container .post-button {
+    display: none;
+    background-color: #524C4C;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: flex-end;
+}
+
+.comment-box-container .comment-box:not(:placeholder-shown) + .post-button {
+    display: inline-block;
+}
+
+.comment-box-container .post-button:hover {
+    background-color: #E8E8E8;
 }

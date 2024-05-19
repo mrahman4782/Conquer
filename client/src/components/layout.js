@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import './layout.css';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import messagesIcon from '../assets/messages.png';
 import notificationsIcon from '../assets/notifications.png';
@@ -11,11 +10,11 @@ import groupsIcon from '../assets/groups.png';
 import marketplaceIcon from '../assets/marketplace.png';
 import locationIcon from '../assets/location.png';
 import resourcesIcon from '../assets/resources.png';
+import './layout.css';
 
 const Layout = ({ children }) => {
-    const [showNotifications, setShowNotifications] = useState(false);
     const navigate = useNavigate();
-    const location = useLocation();
+    const [showNotifications, setShowNotifications] = React.useState(false);
 
     return (
         <div className="outer-container">
@@ -40,12 +39,21 @@ const Layout = ({ children }) => {
             <div className="container">
                 <aside className="sidebar">
                     <ul className="menu">
-                        <li className={location.pathname === '/home' ? 'active' : ''}><Link to="/home"><img src={homeIcon} alt="Home" className="menu-icon" />Home</Link></li>
-                        <li className={location.pathname === '/friends' ? 'active' : ''}><Link to="/friends"><img src={friendsIcon} alt="Friends" className="menu-icon" />Friends</Link></li>
-                        <li className={location.pathname === '/groups' ? 'active' : ''}><Link to="/groups"><img src={groupsIcon} alt="Groups" className="menu-icon" />Groups</Link></li>
-                        <li className={location.pathname === '/marketplace' ? 'active' : ''}><Link to="/marketplace"><img src={marketplaceIcon} alt="Marketplace" className="menu-icon" />Marketplace</Link></li>
+                        <li className={window.location.pathname === '/home' ? 'active' : ''}>
+                            <Link to="/home"><img src={homeIcon} alt="Home" className="menu-icon" />Home</Link>
+                        </li>
+                        <li className={window.location.pathname === '/friends' ? 'active' : ''}>
+                            <Link to="/friends"><img src={friendsIcon} alt="Friends" className="menu-icon" />Friends</Link>
+                        </li>
+                        <li className={window.location.pathname === '/groups' ? 'active' : ''}>
+                            <Link to="/groups"><img src={groupsIcon} alt="Groups" className="menu-icon" />Groups</Link>
+                        </li>
+                        <li className={window.location.pathname === '/marketplace' ? 'active' : ''}>
+                            <Link to="/marketplace"><img src={marketplaceIcon} alt="Marketplace" className="menu-icon" />Marketplace</Link>
+                        </li>
                     </ul>
                     <div className="groups">
+                        <h4 className="groups-header">My Groups</h4>
                         <ul>
                             <li onClick={() => navigate('/groups')}>+ Add Groups</li>
                         </ul>
@@ -58,8 +66,12 @@ const Layout = ({ children }) => {
                     <div className="pinned-events">
                         <h4>Resources</h4>
                         <ul>
-                            <li onClick={() => navigate('/help-center')}><img src={locationIcon} alt="Help Center" className="menu-icon" />Find a Help Center</li>
-                            <li onClick={() => navigate('/resources')}><img src={resourcesIcon} alt="Resources" className="menu-icon" />Scribe</li>
+                            <li onClick={() => navigate('/help-center')}>
+                                <img src={locationIcon} alt="Help Center" className="menu-icon" />Find a Help Center
+                            </li>
+                            <li onClick={() => navigate('/resources')}>
+                                <img src={resourcesIcon} alt="Resources" className="menu-icon" />Scribe
+                            </li>
                         </ul>
                     </div>
                     <div className="friends">
@@ -75,6 +87,6 @@ const Layout = ({ children }) => {
             </div>
         </div>
     );
-}
+};
 
 export default Layout;

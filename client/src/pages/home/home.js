@@ -17,7 +17,6 @@ const Home = () => {
     const [comments, setComments] = useState(0);
     const [shares, setShares] = useState(0);
     const [showCommentBox, setShowCommentBox] = useState(false);
-    const navigate = useNavigate();
 
     const handleTextareaChange = (e) => {
         setStatusText(e.target.value);
@@ -120,5 +119,3 @@ const Home = () => {
 }
 
 export default Home;
-
-

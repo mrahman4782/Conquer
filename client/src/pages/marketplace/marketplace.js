@@ -10,37 +10,9 @@ const instructors = [
   { id: 6, image: 'https://via.placeholder.com/150', name: 'Instructor 6' },
 ];
 
-function Marketplace() { // Rename the component to Marketplace
+const Marketplace = () => {
   return (
-    <div className="container">
-      <Sidebar />
-      <MainContent />
-    </div>
-  );
-}
-
-function Sidebar() {
-  return (
-    <div className="sidebar">
-      <h2>Conquer</h2>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#friends">Friends</a></li>
-          <li><a href="#groups">Groups</a></li>
-          <li><a href="#marketplace">Marketplace</a></li>
-          <li><a href="#categories">Categories</a></li>
-          <li><a href="#private-sessions">Private Sessions</a></li>
-          <li><a href="#meditation-resources">Meditation Resources</a></li>
-        </ul>
-      </nav>
-    </div>
-  );
-}
-
-function MainContent() {
-  return (
-    <div className="main-content">
+    <div className="content">
       <h1>Pick Your Private Session Instructor</h1>
       <div className="instructor-grid">
         {instructors.map(instructor => (
@@ -51,7 +23,7 @@ function MainContent() {
   );
 }
 
-function InstructorCard({ image, name }) {
+const InstructorCard = ({ image, name }) => {
   return (
     <div className="instructor-card">
       <img src={image} alt={name} />
@@ -62,4 +34,4 @@ function InstructorCard({ image, name }) {
   );
 }
 
-export default Marketplace; // Export the Marketplace component
+export default Marketplace;
