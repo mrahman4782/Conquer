@@ -27,6 +27,7 @@ function Register() {
     };
 
     const onRegisterPressed = async (e) => {
+        navigate('/home');
         await userRegister(username, email, password);
         e.preventDefault(); // Prevent default form submission behavior
         // Implement the registration logic here

@@ -9,7 +9,7 @@ import Friends from './pages/friends/friends';
 import Groups from './pages/groups/groups';
 import FindHelp from './pages/findhelp/findhelp';
 import Scribe from './pages/scribe/scribe';
-import Layout from './components/layout';
+import Layout from './components/layout/layout';
 
 function App() {
   return (

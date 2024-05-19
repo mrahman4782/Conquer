@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.png';
-import messagesIcon from '../assets/messages.png';
-import notificationsIcon from '../assets/notifications.png';
-import profileIcon from '../assets/profile.png';
-import homeIcon from '../assets/home.png';
-import friendsIcon from '../assets/friends.png';
-import groupsIcon from '../assets/groups.png';
-import marketplaceIcon from '../assets/marketplace.png';
-import locationIcon from '../assets/location.png';
-import resourcesIcon from '../assets/resources.png';
+import logo from '../../assets/logo.png';
+import messagesIcon from '../../assets/messages.png';
+import notificationsIcon from '../../assets/notifications.png';
+import profileIcon from '../../assets/profile.png';
+import homeIcon from '../../assets/home.png';
+import friendsIcon from '../../assets/friends.png';
+import groupsIcon from '../../assets/groups.png';
+import marketplaceIcon from '../../assets/marketplace.png';
+import locationIcon from '../../assets/location.png';
+import resourcesIcon from '../../assets/resources.png';
 import './layout.css';
 
 const Layout = ({ children }) => {
