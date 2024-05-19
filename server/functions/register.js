@@ -54,7 +54,7 @@ export async function createUser(token, email, username) {
   try {
 
     // Get user uid
-    let checkUserLogin = await loginVerify(session);
+    let checkUserLogin = await loginVerify(token);
     let userId = checkUserLogin.data.uid;
 
     let docRef = db.collection('userProfile').doc(userId);

@@ -16,24 +16,21 @@ db.settings({
 });
 
 /*
-// Verifies that the user is logged in. If logged in, adds current 
-// active token to user profile in firebase.
+// Verifies that the user is logged in.
 */
 
 export async function loginVerify(token){
 
   try {
-    let updateObjFields = {
-      activeSessionToken: token,
-    }
-
     let decodedToken = await admin.auth().verifyIdToken(token);
     console.log(decodedToken);
     
-    let updateToken = await db
-    .collection("userProfile")
-    .doc(decodedToken.uid)
-    .update(updateObjFields);
+    // if (updateSession == true){
+    //   let updateToken = await db
+    //   .collection("userProfile")
+    //   .doc(decodedToken.uid)
+    //   .update(updateObjFields);
+    // }
 
     response.status = 200;
     response.data = decodedToken;
@@ -42,7 +39,6 @@ export async function loginVerify(token){
 
   } catch (error) {
     console.error("Unable to verify token. Error: ", error.message);
-    // Handle errors here, such as showing an alert to the user
     response.status = 403;
     response.data = error.message;
     return response;
