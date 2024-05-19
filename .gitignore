@@ -1,5 +1,7 @@
 .env
-/config/*
+/server/.env
+/client/.env
+/server/config/*
 /client/node_modules
 /server/node_modules
 /server/node_modules

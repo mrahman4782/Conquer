@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './register.css';
 import conquerLogoBgRemoved from './conquerLogoBgRemoved.png'; 
+import userRegister from '../../functions/registerHandler.js';
 
 function Register() {
     const [email, setEmail] = useState("");
@@ -25,10 +26,11 @@ function Register() {
         navigate('/login');
     };
 
-    const onRegisterPressed = (e) => {
+    const onRegisterPressed = async (e) => {
+        await userRegister(username, email, password);
         e.preventDefault(); // Prevent default form submission behavior
         // Implement the registration logic here
-        navigate('/login'); // Redirect to login after registration
+        navigate('/home'); // Redirect to login after registration
     };
 
     return (
