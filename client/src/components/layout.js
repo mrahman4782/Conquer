@@ -16,6 +16,10 @@ const Layout = ({ children }) => {
     const navigate = useNavigate();
     const [showNotifications, setShowNotifications] = React.useState(false);
 
+    const getActiveClass = (path) => {
+        return window.location.pathname === path ? 'active' : '';
+    };
+
     return (
         <div className="outer-container">
             <nav className="navbar">
@@ -39,16 +43,16 @@ const Layout = ({ children }) => {
             <div className="container">
                 <aside className="sidebar">
                     <ul className="menu">
-                        <li className={window.location.pathname === '/home' ? 'active' : ''}>
+                        <li className={getActiveClass('/home')}>
                             <Link to="/home"><img src={homeIcon} alt="Home" className="menu-icon" />Home</Link>
                         </li>
-                        <li className={window.location.pathname === '/friends' ? 'active' : ''}>
+                        <li className={getActiveClass('/friends')}>
                             <Link to="/friends"><img src={friendsIcon} alt="Friends" className="menu-icon" />Friends</Link>
                         </li>
-                        <li className={window.location.pathname === '/groups' ? 'active' : ''}>
+                        <li className={getActiveClass('/groups')}>
                             <Link to="/groups"><img src={groupsIcon} alt="Groups" className="menu-icon" />Groups</Link>
                         </li>
-                        <li className={window.location.pathname === '/marketplace' ? 'active' : ''}>
+                        <li className={getActiveClass('/marketplace')}>
                             <Link to="/marketplace"><img src={marketplaceIcon} alt="Marketplace" className="menu-icon" />Marketplace</Link>
                         </li>
                     </ul>
@@ -66,10 +70,10 @@ const Layout = ({ children }) => {
                     <div className="pinned-events">
                         <h4>Resources</h4>
                         <ul>
-                            <li onClick={() => navigate('/help-center')}>
+                            <li className={getActiveClass('/findhelp')} onClick={() => navigate('/findhelp')}>
                                 <img src={locationIcon} alt="Help Center" className="menu-icon" />Find a Help Center
                             </li>
-                            <li onClick={() => navigate('/resources')}>
+                            <li className={getActiveClass('/scribe')} onClick={() => navigate('/scribe')}>
                                 <img src={resourcesIcon} alt="Resources" className="menu-icon" />Scribe
                             </li>
                         </ul>

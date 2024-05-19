@@ -89,7 +89,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="post-content">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <p>I'm so excited to be part of this journey!</p>
                     <img src={guyImage} alt="Post" className="post-image" />
                 </div>
                 <div className="post-actions">
