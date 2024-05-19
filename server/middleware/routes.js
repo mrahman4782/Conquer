@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 })
 
 // POST Requests
-router.post('/login', async (req, res) => {
+router.post('/api/loginUser', async (req, res) => {
     console.log(req);
     let token = req.body.token;
     let checkUserLogin = await loginVerify(token);
@@ -19,12 +19,12 @@ router.post('/login', async (req, res) => {
     res.status(checkUserLogin.status).send(`Logged in! Expiration time: ${checkUserLogin.data.exp}`);
 });
 
-router.post('/registerUser', async (req, res) => {
+router.post('/api/registerUser', async (req, res) => {
     console.log(req);
     let email = req.body.email;
-    let password = req.body.password;
+    let token = req.body.token;
     let username = req.body.username;
-    let checkUserLogin = await createUser(email, password, username);
+    let checkUserLogin = await createUser(token, email, username);
 
     console.log(checkUserLogin);
     res.status(checkUserLogin.status).send(`Registered!`);
