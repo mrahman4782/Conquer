@@ -2,6 +2,7 @@ import { initializeApp, cert, getApps } from 'firebase-admin/app';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import admin from 'firebase-admin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,15 +13,9 @@ dotenv.config({ path: resolve(__dirname, './../.env') });
 
 async function initializeFirebaseApp(){
 
-    if (getApps().length === 0) {
-        
-        //console.log(FIREBASE_SERVICE_ACCOUNT);
-        const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT;
-        initializeApp({
-        credential: cert(serviceAccount)
-    });
-
-    }
+    getApps().length === 0
+    ? initializeApp({credential: cert(process.env.FIREBASE_SERVICE_ACCOUNT)})
+    : getApps[0];
 }
 
 export default initializeFirebaseApp;

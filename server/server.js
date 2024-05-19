@@ -1,11 +1,20 @@
 import express from 'express';
 import dotenv from "dotenv";
+
+import initializeFirebaseApp from './functions/firebaseInit.js';
+async () => await initializeFirebaseApp();
+import { getFirestore } from 'firebase-admin/firestore';
+
 import { middlewareInit, logRequests, logSuccess, logFailure } from './middleware/config.js';
 import routes from './middleware/routes.js'; 
 dotenv.config({ path: "./.env" });
 
-import initializeFirebaseApp from './functions/firebaseInit.js';
-initializeFirebaseApp(process.env.FIREBASE_SERVICE_ACCOUNT);
+
+const db = getFirestore();
+db.settings({
+    ignoreUndefinedProperties: true,
+  });
+  
 
 const app = express();
 const port = 5000;

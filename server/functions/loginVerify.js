@@ -1,47 +1,25 @@
 import admin from 'firebase-admin'; 
-import 'firebase/auth';
-import { getFirestore } from "firebase-admin/firestore";
-
 import initializeFirebaseApp from './firebaseInit.js';
-initializeFirebaseApp(process.env.FIREBASE_SERVICE_ACCOUNT);
+initializeFirebaseApp();
 
-let response = {
-  status: '',
-  data: ''
-}
-
-const db = getFirestore();
-db.settings({
-  ignoreUndefinedProperties: true,
-});
-
-/*
-// Verifies that the user is logged in.
-*/
-
-export async function loginVerify(token){
+// Function to verify login
+export async function loginVerify(token) {
+  let response = {
+    status: '',
+    data: ''
+  };
 
   try {
     let decodedToken = await admin.auth().verifyIdToken(token);
-    console.log(decodedToken);
-    
-    // if (updateSession == true){
-    //   let updateToken = await db
-    //   .collection("userProfile")
-    //   .doc(decodedToken.uid)
-    //   .update(updateObjFields);
-    // }
+    console.log('Decoded token:', decodedToken);
 
     response.status = 200;
     response.data = decodedToken;
-
-    return response;
-
   } catch (error) {
-    console.error("Unable to verify token. Error: ", error.message);
+    console.error('Unable to verify token. Error:', error.message);
     response.status = 403;
     response.data = error.message;
-    return response;
   }
-}
 
+  return response;
+}
