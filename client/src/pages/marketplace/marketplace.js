@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './marketplace.css';c
+import './marketplace.css';
 
 const instructors = [
   { id: 1, image: 'https://via.placeholder.com/150', name: 'Instructor 1' },
@@ -11,7 +10,7 @@ const instructors = [
   { id: 6, image: 'https://via.placeholder.com/150', name: 'Instructor 6' },
 ];
 
-function App() {
+function Marketplace() { // Rename the component to Marketplace
   return (
     <div className="container">
       <Sidebar />
@@ -63,4 +62,4 @@ function InstructorCard({ image, name }) {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default Marketplace; // Export the Marketplace component

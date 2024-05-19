@@ -5,16 +5,16 @@ import logo from './assets/logo.png';
 import messagesIcon from './assets/messages.png';
 import notificationsIcon from './assets/notifications.png';
 import profileIcon from './assets/profile.png';
-import homeIcon from './assets/home.png'; // Import icons for the sidebar
+import homeIcon from './assets/home.png';
 import friendsIcon from './assets/friends.png';
 import groupsIcon from './assets/groups.png';
 import marketplaceIcon from './assets/marketplace.png';
-import photoIcon from './assets/photo.png'; // Import icons for status options
+import photoIcon from './assets/photo.png';
 import videoIcon from './assets/video.png';
 import likeIcon from './assets/like.png';
 import commentIcon from './assets/comment.png';
 import shareIcon from './assets/share.png';
-import locationIcon from './assets/location.png'; // Import icons for resources
+import locationIcon from './assets/location.png';
 import resourcesIcon from './assets/resources.png';
 import guyImage from './assets/guy.jpg';
 import QuoteOfTheDay from './QuoteOfTheDay';
@@ -85,7 +85,7 @@ const Home = () => {
             <div className="container">
                 <aside className="sidebar">
                     <ul className="menu">
-                        <li className="active"><img src={homeIcon} alt="Home" className="menu-icon" />Home</li>
+                        <li className="active"><Link to="/"><img src={homeIcon} alt="Home" className="menu-icon" />Home</Link></li>
                         <li><Link to="/friends"><img src={friendsIcon} alt="Friends" className="menu-icon" />Friends</Link></li>
                         <li><Link to="/groups"><img src={groupsIcon} alt="Groups" className="menu-icon" />Groups</Link></li>
                         <li><Link to="/marketplace"><img src={marketplaceIcon} alt="Marketplace" className="menu-icon" />Marketplace</Link></li>
