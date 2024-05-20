@@ -9,17 +9,25 @@ let response = {
   data: "",
 };
 
-export async function retrieveUserData(session) {
+export async function getAllGroups(session) {
   // verify the user is logged in
+  console.log(session);
   let checkUserLogin = await loginVerify(session);
   console.log(session);
-  if (checkUserLogin.status == 200) {
+  if (checkUserLogin.status === 200) {
     try {
-      let docRef = await db.collection("userProfile").doc(checkUserLogin.data.uid);
-      const doc = await docRef.get();
-      console.log("Data received", doc.data());
+      // Retrieve all documents in the "users" collection
+      const snapshot = await db.collection("chats").get();
+      let users = [];
+
+      // Iterate through the documents and add their data to the users array
+      snapshot.forEach(doc => {
+        users.push({ id: doc.id, ...doc.data() });
+      });
+
+      console.log("Data received", users);
       response.status = 200;
-      response.data = doc.data();
+      response.data = users;
     } catch (error) {
       response.status = 408;
       response.data = "Request timeout";

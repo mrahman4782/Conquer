@@ -2,6 +2,8 @@ import express from 'express';
 import { createUser } from '../functions/register.js';
 import {updateProfile} from '../functions/updateProfile.js'
 import { loginVerify } from '../functions/loginVerify.js';
+import {retrieveUserData} from '../functions/getUser.js';
+import {getAllGroups} from '../functions/getAllGroups.js';
 
 const router = express.Router();
 
@@ -13,7 +15,7 @@ router.get('/', (req, res) => {
 //POST Requests
 router.post('/api/loginUser', async (req, res) => {
     console.log(req);
-    let token = req.body.token;
+    let token = req.body.token || req.query.token;
     let checkUserLogin = await loginVerify(token);
 
     console.log(checkUserLogin);
@@ -22,9 +24,9 @@ router.post('/api/loginUser', async (req, res) => {
 
 router.post('/api/registerUser', async (req, res) => {
     console.log(req);
-    let email = req.body.email;
-    let token = req.body.token;
-    let username = req.body.username;
+    let email = req.body.email || req.query.email;
+    let token = req.body.token || req.query.token;
+    let username = req.body.username || req.query.username;
     let checkUserLogin = await createUser(token, email, username);
 
     console.log(checkUserLogin);
@@ -33,12 +35,30 @@ router.post('/api/registerUser', async (req, res) => {
 
 router.post('/api/updateProfile', async (req, res) => {
     console.log(req);
-    let data = req.body.data;
-    let token = req.body.token;
+    let data = req.body.data || req.query.data;
+    let token = req.body.token || req.query.token;
     let userUpdateRes = await updateProfile(data, token);
 
     console.log(userUpdateRes);
     res.status(userUpdateRes.status).send(`Profile Updated!`);
 });
+
+router.post('/api/getUser', async (req, res) => {
+    console.log(req);
+    let token = req.body.token || req.query.token;
+    let userData = await retrieveUserData(token);
+
+    console.log(userData);
+    res.status(userData.status).send(userData.data);
+});
+
+router.post('/api/getAllGroups', async (req, res) => {
+    //console.log(req);
+    let token = req.body.token || req.query.token;
+    let groupData = await getAllGroups(token);
+    console.log(groupData);
+    res.status(groupData.status).send(groupData.data);
+});
+
 
 export default router;

@@ -19,7 +19,7 @@ export async function updateProfile(userData, session) {
   if (checkUserLogin.status === 200) {
     try {
       console.log(userData); // Corrected logging
-      await db.collection('users').doc(checkUserLogin.data.uid).update(userData);
+      await db.collection('userProfile').doc(checkUserLogin.data.uid).update(userData);
 
       response.status = 200;
       response.data = 'Successfully updated user';
