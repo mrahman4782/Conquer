@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './landing.css';
 import banner from './banner.png';
-import logo from './logo.png';
 import communityIcon from './community.png';
 import p2pIcon from './p2p.png';
 import optimismIcon from './confidence.png';
@@ -18,7 +17,6 @@ function Landing() {
     <div className="landing">
       <div className="banner-container">
         <img src={banner} alt="Banner" className="banner" />
-        <img src={logo} alt="Logo" className="logo" />
         <div className="banner-text-box">
           <h1 className="tagline">The journey of a thousand miles begins with just one step</h1>
           <button className="ready-button" onClick={navigateToLogin}>I'm ready!</button>

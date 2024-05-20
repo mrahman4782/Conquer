@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import './login.css';
 import userLogin from '../../functions/loginHandler.js';
-import conquerLogoBgRemoved from './logo.png'; 
+import logo from '../../assets/logo.png';
 import Message from './../../components/alertMessage/alertMessage'
 
 function Login() {
@@ -20,14 +20,14 @@ function Login() {
         } else {
             try {
                 await userLogin(email, password);
-                navigate('/home');
+                navigate('/home'); // Redirect to home page after successful login
                 return;
             } catch (error) {
                 setErrorMessage(`Failed to login. Error: ${error.code}`);
                 setShowErrMsg(true);
                 setTimeout(() => {
                     setShowErrMsg(false);
-                  }, 2000);
+                }, 2000);
                 console.log(error);
             }
         }
@@ -49,7 +49,7 @@ function Login() {
         <div className="login-container">
             <div className="login-box">
                 {showErrMsg ? <Message show={showErrMsg} message={errorMessage}/> : null}
-                <img src={conquerLogoBgRemoved} alt="Conquer Logo" style={{ width: '100px', marginBottom: '20px', margin: '0 auto' }} /> {/* Use the imported logo */}
+                <img src={logo} alt="Conquer Logo" style={{ width: '100px', marginBottom: '20px', margin: '0 auto' }} /> 
                 <h2>Sign In</h2>
                 <form onSubmit={onSignInPressed}>
                     <input
@@ -66,7 +66,7 @@ function Login() {
                         onChange={handlePasswordChange}
                         required
                     />
-                    <button type="submit">JOIN</button>
+                    <button type="submit">Sign In</button>
                 </form>
                 <p>
                     Don’t have an account? <a href="/register" onClick={navigateToRegister}>Sign up.</a>

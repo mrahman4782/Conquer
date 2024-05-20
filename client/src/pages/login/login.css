@@ -25,7 +25,7 @@
     width: 150px;
     margin-bottom: 20px;
     position: relative;
-    top: -32px; /* Adjusted to move the logo to the correct position */
+    top: -32px; 
     left: 50%;
     transform: translateX(-50%);
 }

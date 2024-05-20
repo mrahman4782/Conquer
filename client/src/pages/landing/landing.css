@@ -23,12 +23,12 @@ body {
 }
 
 .logo {
-  position: relative;
+  position: absolute;
   top: 25%;  /* Center vertically */
-  left: 100%; /* Center horizontally */
-  transform: translate(-50%, -100%); /* Adjust for the exact center */
+  left: 48%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for the exact center */
   max-width: 150px; /* Or whatever size you want the logo to be */
-  z-index: 100; /* To ensure the logo is above the banner image */
+  z-index: 10; /* To ensure the logo is above the banner image */
 }
 
 .banner-text-box {

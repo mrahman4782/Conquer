@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './register.css';
-import conquerLogoBgRemoved from './conquerLogoBgRemoved.png'; 
+import logo from '../../assets/logo.png';
 import userRegister from '../../functions/registerHandler.js';
 
 function Register() {
@@ -30,7 +30,7 @@ function Register() {
         e.preventDefault(); 
 
         try {
-          const login = await userRegister(username, email, password);
+          const register = await userRegister(username, email, password);
           navigate('/home'); 
         } catch (error) {
           console.error("Registration failed:", error);
@@ -40,7 +40,7 @@ function Register() {
     return (
         <div className="register-container">
             <div className="register-box">
-                <img src={conquerLogoBgRemoved} alt="Conquer Logo" className="logo" /> {/* Use the correct path for your logo */}
+            <img src={logo} alt="Conquer Logo" style={{ width: '100px', marginBottom: '20px', margin: '0 auto' }} />
                 <h2>Sign Up</h2>
                 <form onSubmit={onRegisterPressed}>
                     <input
@@ -64,7 +64,7 @@ function Register() {
                         onChange={handlePasswordChange}
                         required
                     />
-                    <button type="submit">JOIN</button>
+                    <button type="submit">Sign Up</button>
                 </form>
                 <p>
                     Have an account? <a href="/login" onClick={navigateToLogin}>Login here!</a>
