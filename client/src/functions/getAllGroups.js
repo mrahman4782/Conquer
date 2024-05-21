@@ -15,7 +15,7 @@ export async function getAllGroups() {
         const errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
-        return error;
+        throw error;
     }
 }
 
