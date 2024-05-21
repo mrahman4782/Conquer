@@ -3,7 +3,7 @@ import Landing from './pages/landing/landing';
 import Login from './pages/login/login';
 import Register from './pages/register/register';
 import Home from './pages/home/home';
-import Chat from './pages/chat/chat';
+import Chat from './pages/chat/chat';  // Import the new Chat component
 import Marketplace from './pages/marketplace/marketplace';
 import Friends from './pages/friends/friends';
 import Groups from './pages/groups/groups';
@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Layout><Home /></Layout>} />
-        <Route path="/chat" element={<Layout><Chat /></Layout>} />
+        <Route path="/chat" element={<Chat />} />  {/* Use Chat component directly without Layout */}
         <Route path="/marketplace" element={<Layout><Marketplace /></Layout>} />
         <Route path="/friends" element={<Layout><Friends /></Layout>} />
         <Route path="/groups" element={<Layout><Groups /></Layout>} />
@@ -33,4 +33,3 @@ function App() {
 }
 
 export default App;
-
