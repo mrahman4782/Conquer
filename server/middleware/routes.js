@@ -6,6 +6,7 @@ import {retrieveUserData} from '../functions/getUser.js';
 import {getAllGroups} from '../functions/getAllGroups.js';
 import {sendMessage} from '../functions/sendMessage.js';
 import { getAllMessages } from '../functions/getMessages.js';
+import {createGroup} from '../functions/createGroup.js';
 
 const router = express.Router();
 
@@ -73,7 +74,7 @@ router.post('/api/sendMessage', async (req, res) => {
 });
 
 router.post('/api/getAllMessages', async (req, res) => {
-    
+    console.log(req);
     let token = req.body.token || req.query.token;
     let chatId = req.body.chatId || req.query.chatId;
     let messageStatus = await getAllMessages(token, chatId);
@@ -81,5 +82,13 @@ router.post('/api/getAllMessages', async (req, res) => {
     res.status(messageStatus.status).send(messageStatus.data);
 });
 
+router.post('/api/createGroup', async (req, res) => {
+    
+    let token = req.body.token || req.query.token;
+    let name = req.body.name || req.query.name;
+    let createStatus = await createGroup(token, name);
+    console.log(createStatus);
+    res.status(createStatus.status).send(createStatus.data);
+});
 
 export default router;

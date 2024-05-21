@@ -1,6 +1,7 @@
-import { getFirestore } from 'firebase-admin/firestore';
+import { getFirestore, FieldValue  } from 'firebase-admin/firestore';
 import { loginVerify } from './loginVerify.js';
 import {retrieveUserData} from './getUser.js';
+import { getAllMessages } from './getMessages.js';
 
 
 // Initialize Firestore
@@ -26,6 +27,7 @@ export async function sendMessage(message, session, chatId) {
       //await db.collection('userProfile').doc(checkUserLogin.data.uid).update(userData);
 
       let checkUserLogin = await loginVerify(session);
+      let getCurrentMessages = await getAllMessages(session, chatId);
       console.log(checkUserLogin.data.uid);
 
       let today = new Date();
@@ -36,12 +38,8 @@ export async function sendMessage(message, session, chatId) {
         senderUsername: checkUserProfile.data.username,
         text: message,
       }
-
-      const ref = db.ref(`/chats/${chatId}`);
-      let messageRef = ref.child("messages");
-
-      const snapshot = await messageRef.once('value');
-      const messages = snapshot.val() || [];
+      // let history = getCurrentMessages.data.messages;
+      // history.push(messageObj)
 
 
       if (!checkUserProfile.data.userOfChatGroupId.includes(chatId)){
@@ -49,9 +47,9 @@ export async function sendMessage(message, session, chatId) {
         response.data = 'User not in groupchat';
       }
       else {
-        //db.collection('chats').doc(chatId).update(message);
-        messages.push(messageObj);
-        await messageRef.set(messages)
+        await db.collection('chats').doc(chatId).update({
+          messages: FieldValue.arrayUnion(messageObj)
+        });
         response.status = 200;
         response.data = checkUserLogin;
       }
