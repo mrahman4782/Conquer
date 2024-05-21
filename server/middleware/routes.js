@@ -4,6 +4,8 @@ import {updateProfile} from '../functions/updateProfile.js'
 import { loginVerify } from '../functions/loginVerify.js';
 import {retrieveUserData} from '../functions/getUser.js';
 import {getAllGroups} from '../functions/getAllGroups.js';
+import {sendMessage} from '../functions/sendMessage.js';
+import { getAllMessages } from '../functions/getMessages.js';
 
 const router = express.Router();
 
@@ -58,6 +60,25 @@ router.post('/api/getAllGroups', async (req, res) => {
     let groupData = await getAllGroups(token);
     console.log(groupData);
     res.status(groupData.status).send(groupData.data);
+});
+
+router.post('/api/sendMessage', async (req, res) => {
+    console.log(req);
+    let token = req.body.token || req.query.token;
+    let message = req.body.message || req.query.message;
+    let chatId = req.body.chatId || req.query.chatId;
+    let messageStatus = await sendMessage(message, token, chatId);
+    console.log(messageStatus);
+    res.status(messageStatus.status).send(messageStatus.data);
+});
+
+router.post('/api/getAllMessages', async (req, res) => {
+    
+    let token = req.body.token || req.query.token;
+    let chatId = req.body.chatId || req.query.chatId;
+    let messageStatus = await getAllMessages(token, chatId);
+    console.log(messageStatus);
+    res.status(messageStatus.status).send(messageStatus.data);
 });
 
 
