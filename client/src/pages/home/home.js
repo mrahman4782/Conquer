@@ -4,6 +4,95 @@ import './home.css';
 import profileIcon from './assets/profile.png';
 import photoIcon from './assets/photo.png';
 import videoIcon from './assets/video.png';
+import guyImage from './assets/guy.jpg';
+import Status from '../../components/status/status';
+import QuoteOfTheDay from './QuoteOfTheDay';
+
+const Home = () => {
+    const [statusText, setStatusText] = useState('');
+    const [likes, setLikes] = useState(0);
+    const [comments, setComments] = useState(0);
+    const [shares, setShares] = useState(0);
+
+    const handleTextareaChange = (e) => {
+        setStatusText(e.target.value);
+        e.target.style.height = 'auto';
+        e.target.style.height = `${e.target.scrollHeight}px`;
+    };
+
+    const handleLike = () => {
+        setLikes(likes + 1);
+    };
+
+    const handleComment = () => {
+        setComments(comments + 1);
+    };
+
+    const handleShare = () => {
+        setShares(shares + 1);
+    };
+
+    return (
+        <div className="content">
+            <div className={`status ${statusText ? 'expanded' : ''}`}>
+                <div className="status-header">
+                    <img src={profileIcon} alt="Profile" className="status-profile-icon" />
+                    <div className="status-input-container">
+                        <textarea
+                            placeholder="What's on your mind"
+                            value={statusText}
+                            onChange={handleTextareaChange}
+                            className="status-input"
+                            rows="1"
+                        />
+                    </div>
+                </div>
+                <div className={`status-footer ${statusText ? 'with-text' : ''}`}>
+                    <label className="status-option-label">
+                        <input type="file" accept="image/*" style={{ display: 'none' }} />
+                        <img src={photoIcon} alt="Photo" className="status-option-icon" />
+                        <span>Photo</span>
+                    </label>
+                    <label className="status-option-label">
+                        <input type="file" accept="video/*" style={{ display: 'none' }} />
+                        <img src={videoIcon} alt="Video" className="status-option-icon" />
+                        <span>Video</span>
+                    </label>
+                    {statusText && <button className="post-button">Post</button>}
+                </div>
+            </div>
+            <QuoteOfTheDay />
+            <Status
+                user="John Carter"
+                text="I'm so excited to be part of this journey!"
+                image={guyImage}
+                timestamp="4 hours ago"
+                likes={likes}
+                comments={comments}
+                shares={shares}
+                onLike={handleLike}
+                onComment={handleComment}
+                onShare={handleShare}
+            />
+        </div>
+    );
+}
+
+export default Home;
+
+
+
+
+
+
+/* Backup Code
+
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './home.css';
+import profileIcon from './assets/profile.png';
+import photoIcon from './assets/photo.png';
+import videoIcon from './assets/video.png';
 import likeIcon from './assets/like.png';
 import commentIcon from './assets/comment.png';
 import shareIcon from './assets/share.png';
@@ -118,4 +207,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Home; */
