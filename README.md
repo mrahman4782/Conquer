@@ -1,26 +1,83 @@
-Team Name
-Conquer
 
-Team Members
-Mohammad Rahman Amimul Arnab Joshua Henry
+# Conquer
 
-Project Idea
-We want to create a social media platform that serves as a supportive community for individuals seeking to overcome various addictions. The platform will facilitate connections, provide resources, and offer tools tailored to the needs of people at different stages of their recovery journey. We aim to have direct messaging between users and groups, along with status updates, recovery tracking, and access to emergency support features for users in critical need.
+![Conquer Logo](https://cdn.discordapp.com/attachments/1212169284730486846/1229570191013445722/Screenshot_2024-04-15_at_7.12.53_PM.png?ex=664dd339&is=664c81b9&hm=28df0b3773d49a8f5a0f988e73967b43692d174d5e9c14e0d913e5615f66bd00&)
 
-Motivation for the Application
-As undergrad college students we can safely say that college is pretty tough as it functions as the intersection between youth and adulthood. It’s a rough time where students are often juggling academic performance with career development alongside an important stage of their personal relationships. It’s also a time where many students unfortunately fall into and develop addictions. Whether it be drugs or alcohol, to less recognized issues like social media and overall internet addiction, ,any students feel alienated when dealing with these issues and do not know where to find the resources and help they need to overcome these challenges. Our goal is directly address this concern and provide students with the tools and support they need to conquer the various challenges throughout their walk of life.
+A supportive community platform designed to help individuals overcome various addictions by providing resources, tools, and a community to connect with.
 
-Who would use the application?
-As mentioned before, our target audience is primarily people who are of college age or older. A lot of these addictions tend to be more on the adult side of issues, so we would like to avoid younger audiences.
+## About The Project
 
-Is there a need or want in the market it fulfills?
-There is a lack of effective mental health and productivity platforms in the market. The ones that do exist tend to be more generalized while we aim to focus on concerns that students in college commonly deal with.
+![Conquer Screenshot](https://i.gyazo.com/7f43bfd80dcb1e53ff48361ad567127b.jpg)
 
-What technologies do you plan on using?
-We plan to use the MERN stack with firebase. We are unsure of whether or not we want to stick to a web platform or go cross platform on iOS and Android so we will use React/React Native depending on the finalized features. For the backend we will use Node.JS and Express.JS. For our external database and general hosting we will use firebase’s firestore database.
+Conquer is a social media platform focused on creating a supportive environment for individuals seeking to overcome addictions. The platform includes features such as direct messaging, status updates, recovery tracking, and access to emergency support.
 
-Are there similar applications or competitors available now? How does your idea differ? Or why is there a need for a competitor?
-There isn’t an exact competitor to our application. Productivity apps like Habitify allow you to track your habits and work on goals so that you can improve. Mental health apps like Sanvelo provide tools and resources to deal with mental health issues. Our idea somewhat combines the likes of these apps together into a singular platform with a live community that users can rely on.
+### Built With
 
-What public API(s) will you be utilizing? How do you plan on utilizing the API? You must use at least one API.
-SAMHSA (Substance Abuse and Mental Health Services Administration) API - Provides information on treatment facilities and resources for substance abuse and mental health issues. Nutritionix API - Offers comprehensive nutritional data, helping users maintain a healthy diet during their recovery process.
+- [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [Express.js](https://expressjs.com/)
+- [Firebase](https://firebase.google.com/)
+
+## Getting Started
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/mrahman4782/Conquer.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start the development server
+   ```sh
+   npm start
+   ```
+
+## Usage
+
+Provide examples of how to use the platform. 
+
+_For more examples, please refer to the [Documentation](https://github.com/mrahman4782/Conquer/blob/master/proposal.md)_
+
+## Roadmap
+
+See the [open issues](https://github.com/mrahman4782/Conquer/blob/master/proposal.md) for a list of proposed features (and known issues).
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+## Contact
+
+Aminul Arnab - https://github.com/amimul-arnab
+Mohammad Rahman - https://github.com/mrahman4782
+Joshua Henry - https://github.com/jhenrynyc
+
+Project Link: [https://github.com/mrahman4782/Conquer](https://github.com/mrahman4782/Conquer)
+
+## Acknowledgments
+
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+- [Choose an Open Source License](https://choosealicense.com)
+- [Img Shields](https://shields.io)
+- [GitHub Pages](https://pages.github.com)
+- [Font Awesome](https://fontawesome.com)
+- [React Icons](https://react-icons.github.io/react-icons)
