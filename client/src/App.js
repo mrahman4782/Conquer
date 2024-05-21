@@ -9,6 +9,7 @@ import Friends from './pages/friends/friends';
 import Groups from './pages/groups/groups';
 import FindHelp from './pages/findhelp/findhelp';
 import Scribe from './pages/scribe/scribe';
+import Profile from './pages/profile/profile';
 import Layout from './components/layout/layout';
 
 function App() {
@@ -25,9 +26,11 @@ function App() {
         <Route path="/groups" element={<Layout><Groups /></Layout>} />
         <Route path="/findhelp" element={<Layout><FindHelp /></Layout>} />
         <Route path="/scribe" element={<Layout><Scribe /></Layout>} />
+        <Route path="/profile" element={<Layout><Profile /></Layout>} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
