@@ -34,7 +34,7 @@ const Home = () => {
 
     return (
         <div className="content">
-            <div className={`status ${statusText ? 'expanded' : ''}`}>
+            <div className="status expanded">
                 <div className="status-header">
                     <img src={profileIcon} alt="Profile" className="status-profile-icon" />
                     <div className="status-input-container">
@@ -47,7 +47,7 @@ const Home = () => {
                         />
                     </div>
                 </div>
-                <div className={`status-footer ${statusText ? 'with-text' : ''}`}>
+                <div className="status-footer with-text">
                     <label className="status-option-label">
                         <input type="file" accept="image/*" style={{ display: 'none' }} />
                         <img src={photoIcon} alt="Photo" className="status-option-icon" />
@@ -74,14 +74,16 @@ const Home = () => {
                 onComment={handleComment}
                 onShare={handleShare}
             />
+            <div className="nav-icons">
+                <Link to="/chat">
+                    <img src="path/to/messageIcon.png" alt="Messages" className="icon" />
+                </Link>
+            </div>
         </div>
     );
 }
 
 export default Home;
-
-
-
 
 
 
