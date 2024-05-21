@@ -1,5 +1,5 @@
 import { initializeApp, cert } from 'firebase-admin/app';
-import { getFirestore } from 'firebase-admin/firestore';
+import { getFirestore, FieldValue } from 'firebase-admin/firestore';
 import admin from 'firebase-admin'; // Import the default export for auth
 import { loginVerify } from './loginVerify.js';
 
@@ -35,7 +35,10 @@ export async function createGroup(token, name) {
         newObjFields.createdBy = userId;
 
         let docRef = await db.collection('chats').add(newObjFields);
-    
+
+        await db.collection('userProfile').doc(userId).update({
+            userOfChatGroupId: FieldValue.arrayUnion(docRef.id)
+          });
         response.status = 201;
         response.data = 'Successfully created group chat!';
     
@@ -45,7 +48,7 @@ export async function createGroup(token, name) {
     } catch (error) {
         console.error('Error creating group:', error);
         response.status = 500;
-        response.data = error;
+        response.data = "Internal server error.";
         return response;
     }
   }
