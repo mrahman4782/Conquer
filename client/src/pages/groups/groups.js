@@ -4,6 +4,7 @@ import AddIcon from '@mui/icons-material/Add';
 import CheckIcon from '@mui/icons-material/Check';
 import getAllGroups from '../../functions/getAllGroups';
 import createGroup from '../../functions/createGroup';
+import joinGroup from '../../functions/joinGroup';
 
 import Message from './../../components/alertMessage/alertMessage';
 
@@ -16,6 +17,8 @@ function Groups() {
   const [newGroupClicked, setNewGroupClicked] = useState(false);
   const [groupName, setGroupName] = useState('');
   const [fetchGroups, setFetchGroups] = useState(true); // State to control fetching groups
+  const [type, setType] = useState('failure');
+
 
   useEffect(() => {
     const setAllGroups = async () => {
@@ -24,8 +27,13 @@ function Groups() {
         setGroupChats(data.data);
         setCheckClicked(Array(data.data.length).fill(false)); // Initialize the checkClicked state based on the data length
       } catch (error) {
-        setErrorMessage('Failed to fetch groups');
+        setErrorMessage('Failed to fetch groups. Please ensure you are logged in');
         setShowErrMsg(true);
+        setType('failure');
+        setTimeout(() => {
+          setShowErrMsg(false);
+        }, 2000);
+    
       }
     };
 
@@ -35,17 +43,40 @@ function Groups() {
     }
   }, [fetchGroups]); // Only depend on fetchGroups
 
-  const handleIconClick = (index) => {
+  const handleIconClick = async (index, group) => {
     const newClicked = [...checkClicked];
     newClicked[index] = true;
     setCheckClicked(newClicked);
+    try {
+      console.log("hi")
+      await joinGroup(group.id);
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const createGroupButton = async () => {
     // Handle the form submission logic here
     console.log('Submit new group:', groupName);
     setFetchGroups(true); 
-    await createGroup(groupName);
+    try {
+      await createGroup(groupName);
+      setType('success');
+      setErrorMessage('Successfully created group');
+      setShowErrMsg(true);
+      setTimeout(() => {
+        setShowErrMsg(false);
+      }, 2000);
+    } catch (error) {
+      setType('failure');
+      setErrorMessage('Failed to create group. Try again later.');
+      setShowErrMsg(true);
+      setTimeout(() => {
+        setShowErrMsg(false);
+      }, 2000);
+    }
+
   };
 
   const handleGroupNameChange = (event) => {
@@ -61,7 +92,7 @@ function Groups() {
       <div className="headerText">
         <h1>Join a group!</h1>
       </div>
-      {showErrMsg && <Message message={errorMessage} />}
+      {showErrMsg && <Message show={showErrMsg} message={errorMessage} type={type} />}
       <Grid container spacing={1}>
         {groupChats.map((group, index) => (
           <Grid item xs={12} sm={6} key={group.id}>
@@ -72,7 +103,7 @@ function Groups() {
                   <IconButton
                     size="small"
                     style={{ padding: '0', width: '30px', height: '30px' }}
-                    onClick={() => handleIconClick(index)}
+                    onClick={() => handleIconClick(index, group)}
                   >
                     {checkClicked[index] ? (
                       <CheckIcon style={{ fontSize: '16px' }} />
