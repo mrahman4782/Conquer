@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import messagesIcon from '../../assets/messages.png';
@@ -10,15 +10,32 @@ import groupsIcon from '../../assets/groups.png';
 import marketplaceIcon from '../../assets/marketplace.png';
 import locationIcon from '../../assets/location.png';
 import resourcesIcon from '../../assets/resources.png';
+import getAllGroups from '../../functions/getAllGroups';
+import responsiveGroupTrack from '../../functions/responsiveGroupTrack';
+
 import './layout.css';
 
 const Layout = ({ children }) => {
     const navigate = useNavigate();
-    const [showNotifications, setShowNotifications] = React.useState(false);
+    const [showNotifications, setShowNotifications] = useState(false);
+    const [groups, setGroups] = useState([]);
 
     const getActiveClass = (path) => {
         return window.location.pathname === path ? 'active' : '';
     };
+
+    useEffect(() => {
+        const setAllGroups = async () => {
+            try {
+                const data = await getAllGroups();
+                setGroups(data.data);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        setAllGroups();
+    }, [responsiveGroupTrack.boolVal])
 
     return (
         <div className="outer-container">
@@ -59,6 +76,11 @@ const Layout = ({ children }) => {
                     <div className="groups">
                         <h4 className="groups-header">My Groups</h4>
                         <ul>
+                            {groups.map(group => (
+                                <li key={group.id} onClick={() => navigate(`/groups/${group.id}/chat`)}>
+                                    {group.chatName}
+                                </li>
+                            ))}
                             <li onClick={() => navigate('/groups')}>+ Add Groups</li>
                         </ul>
                     </div>

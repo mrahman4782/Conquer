@@ -5,6 +5,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import getAllGroups from '../../functions/getAllGroups';
 import createGroup from '../../functions/createGroup';
 import joinGroup from '../../functions/joinGroup';
+import responsiveGroupTrack from '../../functions/responsiveGroupTrack';
 
 import Message from './../../components/alertMessage/alertMessage';
 
@@ -39,6 +40,7 @@ function Groups() {
 
     if (fetchGroups) {
       setAllGroups();
+      responsiveGroupTrack.updateBoolVal();
       setFetchGroups(false); // Reset the fetch flag to prevent infinite loop
     }
   }, [fetchGroups]); // Only depend on fetchGroups

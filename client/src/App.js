@@ -20,10 +20,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Layout><Home /></Layout>} />
-        <Route path="/chat" element={<Layout><Chat /></Layout>} />
         <Route path="/marketplace" element={<Layout><Marketplace /></Layout>} />
         <Route path="/friends" element={<Layout><Friends /></Layout>} />
         <Route path="/groups" element={<Layout><Groups /></Layout>} />
+        <Route path="/groups/:groupId/chat" element={<Layout><Chat /></Layout>} />
         <Route path="/findhelp" element={<Layout><FindHelp /></Layout>} />
         <Route path="/scribe" element={<Layout><Scribe /></Layout>} />
         <Route path="/profile" element={<Layout><Profile /></Layout>} />
@@ -33,4 +33,3 @@ function App() {
 }
 
 export default App;
-
