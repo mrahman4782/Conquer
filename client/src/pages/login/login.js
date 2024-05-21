@@ -106,7 +106,7 @@ function Login() {
                     />
                     <button type="submit">Sign In</button>
                 </form>
-                <button onClick={handleGoogleSignIn}>Sign in with Google</button>
+                <button style={{width: '300px'}}onClick={handleGoogleSignIn}>Sign in with Google</button>
                 <p>
                     Don’t have an account? <a href="/register" onClick={navigateToRegister}>Sign up.</a>
                 </p>
