@@ -13,7 +13,7 @@ const Message = ({ show, message, type = 'error'}) => {
     <Box
       sx={{
         position: 'fixed',
-        top: '50%',
+        top: '37%',
         left: '50%',
         transform: 'translate(-50%, -400%)',
         padding: '20px',

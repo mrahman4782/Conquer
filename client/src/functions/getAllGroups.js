@@ -1,12 +1,12 @@
 import axios from 'axios';
 import sessionStorage from './sessionStorage.js';
 
-export async function createGroup(name) {
+export async function getAllGroups() {
     try {
 
         let token = sessionStorage.sessionKey;
-        const response = await axios.post(`http://localhost:5000/api/createGroup`, { token: token, name: name});
-        console.log("Successfully created group!");
+        const response = await axios.post(`http://localhost:5000/api/getAllGroups`, { token: token});
+        console.log("Successfully received groups!");
         return response;
 
     } catch (error) {
@@ -20,4 +20,4 @@ export async function createGroup(name) {
 }
 
 
-export default createGroup;
+export default getAllGroups;
