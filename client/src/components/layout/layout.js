@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
     return (
         <div className="outer-container">
             <nav className="navbar">
-                <img src={logo} alt="Logo" className="logo" onClick={() => navigate('/home')} />
+                <img src={logo} alt="Logo" className="logo" onClick={() => navigate('/')} />
                 <input type="text" placeholder="Search for friends, spaces, groups" className="search-bar" />
                 <div className="nav-icons">
                     <img src={messagesIcon} alt="Messages" className="icon" onClick={() => navigate('/messages')} />
