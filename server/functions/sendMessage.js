@@ -27,7 +27,6 @@ export async function sendMessage(message, session, chatId) {
       //await db.collection('userProfile').doc(checkUserLogin.data.uid).update(userData);
 
       let checkUserLogin = await loginVerify(session);
-      let getCurrentMessages = await getAllMessages(session, chatId);
       console.log(checkUserLogin.data.uid);
 
       let today = new Date();

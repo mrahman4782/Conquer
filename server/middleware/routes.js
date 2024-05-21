@@ -7,6 +7,7 @@ import {getAllGroups} from '../functions/getAllGroups.js';
 import {sendMessage} from '../functions/sendMessage.js';
 import { getAllMessages } from '../functions/getMessages.js';
 import {createGroup} from '../functions/createGroup.js';
+import { joinGroup } from '../functions/joinGroup.js';
 
 const router = express.Router();
 
@@ -89,6 +90,15 @@ router.post('/api/createGroup', async (req, res) => {
     let createStatus = await createGroup(token, name);
     console.log(createStatus);
     res.status(createStatus.status).send(createStatus.data);
+});
+
+router.post('/api/joinGroup', async (req, res) => {
+    console.log(req)
+    let token = req.body.token || req.query.token;
+    let chatId = req.body.chatId || req.query.chatId;
+    let joinStatus = await joinGroup(token, chatId);
+    console.log(joinStatus);
+    res.status(joinStatus.status).send(joinStatus.data);
 });
 
 export default router;
