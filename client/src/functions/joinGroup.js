@@ -6,10 +6,10 @@ export async function joinGroup(groupId) {
 
         let response = '';
         let token = sessionStorage.sessionKey;
-        const user = await axios.post(`http://localhost:5000/api/getUser`, {token: token})
+        const user = await axios.post(`https://api.medconnectapp.org/api/getUser`, {token: token})
         let userGroups = user.data.userOfChatGroupId;
         if (!userGroups.includes(groupId)){
-            response = await axios.post(`http://localhost:5000/api/joinGroup`, { token: token, chatId: groupId});
+            response = await axios.post(`https://api.medconnectapp.org/api/joinGroup`, { token: token, chatId: groupId});
             console.log("Successfully joined group!");
         }
         else {

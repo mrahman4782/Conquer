@@ -5,7 +5,7 @@ export async function getAllGroups() {
     try {
 
         let token = sessionStorage.sessionKey;
-        const response = await axios.post(`http://localhost:5000/api/getAllGroups`, { token: token});
+        const response = await axios.post(`https://api.medconnectapp.org/api/getAllGroups`, { token: token});
         console.log("Successfully received groups!");
         return response;
 

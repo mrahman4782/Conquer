@@ -5,7 +5,7 @@ export async function getMessages(chatId) {
     try {
 
         let token = sessionStorage.sessionKey;
-        const response = await axios.post(`http://localhost:5000/api/getAllMessages`, { token: token, chatId: chatId});
+        const response = await axios.post(`https://api.medconnectapp.org/api/getAllMessages`, { token: token, chatId: chatId});
         console.log("Received all messages");
         return response;
 

@@ -5,7 +5,7 @@ export async function getUser() {
     try {
 
         let token = sessionStorage.sessionKey;
-        const response = await axios.post(`http://localhost:5000/api/getUser`, { token: token});
+        const response = await axios.post(`https://api.medconnectapp.org/api/getUser`, { token: token});
         console.log("Got user");
         return response;
 

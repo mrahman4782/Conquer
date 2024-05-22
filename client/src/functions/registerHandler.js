@@ -14,7 +14,7 @@ import { FIREBASE_APP, FIREBASE_AUTH } from "./fireBaseConfig.js";
       console.log(token);
   
       // Make request to backend
-      const response = await axios.post('http://localhost:5000/api/registerUser', { token: token, username: username, email: email });
+      const response = await axios.post('https://api.medconnectapp.org/api/registerUser', { token: token, username: username, email: email });
   
       // Store Async session token to Async Storage
       sessionStorage.setSessionKey(token);

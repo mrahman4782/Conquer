@@ -15,7 +15,7 @@ export async function userLogin(email, password) {
     console.log(token);
 
     // Make request to backend. Response handling needed
-    const response = await axios.post('http://localhost:5000/api/loginUser', { token: token });
+    const response = await axios.post('https://api.medconnectapp.org/api/loginUser', { token: token });
 
     // Store Async session token to Async Storage
     sessionStorage.setSessionKey(token);
