@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
                 <img src={logo} alt="Logo" className="logo" onClick={() => navigate('/')} />
                 <input type="text" placeholder="Search for friends, spaces, groups" className="search-bar" />
                 <div className="nav-icons">
-                    <img src={messagesIcon} alt="Messages" className="icon" onClick={() => navigate('/messages')} />
+                    <img src={messagesIcon} alt="Messages" className="icon" onClick={() => navigate('/groups')} />
                     <div className="notification-wrapper">
                         <img src={notificationsIcon} alt="Notifications" className="icon" onClick={() => setShowNotifications(!showNotifications)} />
                         {showNotifications && (
