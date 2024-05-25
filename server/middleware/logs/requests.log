@@ -4098,3 +4098,5 @@
 ::1 - - [21/May/2024:23:46:37 +0000] "POST /api/getAllMessages HTTP/1.1" 200 195 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 ::1 - - [21/May/2024:23:46:37 +0000] "POST /api/getAllMessages HTTP/1.1" 200 195 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 ::1 - - [21/May/2024:23:46:37 +0000] "POST /api/getAllGroups HTTP/1.1" 200 1850 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+::1 - - [22/May/2024:00:27:47 +0000] "POST /api/getAllGroups HTTP/1.1" 200 1850 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+::1 - - [22/May/2024:00:27:47 +0000] "POST /api/getAllGroups HTTP/1.1" 200 1850 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
