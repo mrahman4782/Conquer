@@ -19,7 +19,7 @@ export async function retrieveUserData(session) {
       const doc = await docRef.get();
       console.log("Data received", doc.data());
       response.status = 200;
-      response.data = doc.data();
+      response.data = { ...doc.data(), uid: checkUserLogin.data.uid }; // Add uid to the data object
     } catch (error) {
       response.status = 408;
       response.data = "Request timeout";

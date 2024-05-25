@@ -8,6 +8,7 @@ import {sendMessage} from '../functions/sendMessage.js';
 import { getAllMessages } from '../functions/getMessages.js';
 import {createGroup} from '../functions/createGroup.js';
 import { joinGroup } from '../functions/joinGroup.js';
+import { createPaymentIntent } from '../functions/stripeApi.js';
 
 const router = express.Router();
 
@@ -99,6 +100,14 @@ router.post('/api/joinGroup', async (req, res) => {
     let joinStatus = await joinGroup(token, chatId);
     console.log(joinStatus);
     res.status(joinStatus.status).send(joinStatus.data);
+});
+
+router.post('/api/makePayment', async (req, res) => {
+    console.log(req)
+    let amount = req.body.amount || req.query.amount;
+    let currency = req.body.currency || req.query.currency;
+    let paymentStatus = await createPaymentIntent(amount, currency);
+    res.status(paymentStatus.status).send(paymentStatus.data);
 });
 
 export default router;

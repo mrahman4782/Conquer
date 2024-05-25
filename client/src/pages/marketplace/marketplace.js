@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import './marketplace.css';
 
-const stripePromise = loadStripe('your_public_stripe_key_here');
+const stripePromise = loadStripe('aDl664ygCQP8jES77tn4oEEkwvPozIpuQSvWi0');
 
 const instructors = [
     { id: 1, image: 'https://i.gyazo.com/914bb34547d8935dcce6800153cd7a9f.png', name: 'Mark', calendly: 'https://calendly.com/jhenry012/30min', amount: 5000 },
@@ -51,7 +51,7 @@ const PaymentForm = ({ amount, onPaymentSuccess }) => {
             });
 
             if (result.error) {
-                setError(result.error.message);
+                setError('Card not charged for development purposes.');
                 setLoading(false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
@@ -59,7 +59,7 @@ const PaymentForm = ({ amount, onPaymentSuccess }) => {
                 }
             }
         } catch (error) {
-            setError(error.message);
+            setError('Card not charged for development purposes.');
             setLoading(false);
         }
     };

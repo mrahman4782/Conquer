@@ -4,6 +4,7 @@ import './chat.css';
 import getMessages from '../../functions/getMessages';
 import sendMessages from '../../functions/sendMessage';
 import getUser from '../../functions/getUser';
+import Message from './../../components/alertMessage/alertMessage';
 
 const Chat = () => {
   const { groupId } = useParams();
@@ -14,19 +15,58 @@ const Chat = () => {
     { text: 'What about you?', sent: false },
     { text: 'I am doing well, too.', sent: true }
   ]);
+
   const [inputValue, setInputValue] = useState('');
   const chatEndRef = useRef(null);
+  const [showErrMsg, setShowErrMsg] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [user, setUser] = useState('');
+  const [oldMessages, setOldMessages] = useState([]);
+
 
   useEffect(() => {
-    let output = '';
-    let user = '';
     const getAllMessages = async () => {
-      output = getMessages(groupId);
-      
+      try {
+        const output = await getMessages(groupId);
+        return output.data;
+        // You might want to update the messages state here with the fetched messages
+        // setMessages(output);
+      } catch (error) {
+        console.log("boo");
+        setErrorMessage(`Failed to retrieve chats. Error: ${error.message}`);
+        setShowErrMsg(true);
+        setTimeout(() => {
+            setShowErrMsg(false);
+        }, 2000);
+        console.log(error);
+      }
     }
 
-    getAllMessages()
-  }, [inputValue]);
+    const previousMessages = getAllMessages();
+    setOldMessages(previousMessages);
+  }, [groupId]);
+
+  useEffect(() => {
+
+    const getUserHandler = async () => {
+      try {
+        const user = await getUser();
+        console.log(user)
+        return user.data;
+      } catch (error) {
+        setErrorMessage(`Failed to retrieve user. Error: ${error.message}`);
+        setShowErrMsg(true);
+        setTimeout(() => {
+            setShowErrMsg(false);
+        }, 2000);
+        console.log(error);
+      }
+    }
+    
+    const userInfo = getUserHandler();
+    setUser(userInfo);
+
+  }, []);
   
   const handleSendMessage = async () => {
     if (inputValue.trim() !== '') {
@@ -35,7 +75,8 @@ const Chat = () => {
       try {
         await sendMessages(groupId, inputValue);
       } catch (error) {
-        
+        // Handle send message error
+        console.log(error);
       }
     } 
   };
@@ -50,6 +91,8 @@ const Chat = () => {
 
   return (
     <div className="chat-container">
+      {showErrMsg ? <Message show={showErrMsg} message={errorMessage}/> : null}
+
       <div className="chat-sidebar">
         {/* Sidebar content can be added here */}
       </div>
@@ -81,4 +124,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;//agwgagawgawgag
+export default Chat;
