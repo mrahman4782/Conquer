@@ -6,12 +6,12 @@ import './marketplace.css';
 const stripePromise = loadStripe('your_public_stripe_key_here');
 
 const instructors = [
-    { id: 1, image: 'https://via.placeholder.com/150', name: 'Instructor 1', calendly: 'https://calendly.com/jhenry012/30min', amount: 5000 },
-    { id: 2, image: 'https://via.placeholder.com/150', name: 'Instructor 2', calendly: 'https://calendly.com/instructor2', amount: 6000 },
-    { id: 3, image: 'https://via.placeholder.com/150', name: 'Instructor 3', calendly: 'https://calendly.com/instructor3', amount: 7000 },
-    { id: 4, image: 'https://via.placeholder.com/150', name: 'Instructor 4', calendly: 'https://calendly.com/instructor4', amount: 8000 },
-    { id: 5, image: 'https://via.placeholder.com/150', name: 'Instructor 5', calendly: 'https://calendly.com/instructor5', amount: 9000 },
-    { id: 6, image: 'https://via.placeholder.com/150', name: 'Instructor 6', calendly: 'https://calendly.com/instructor6', amount: 10000 },
+    { id: 1, image: 'https://i.gyazo.com/914bb34547d8935dcce6800153cd7a9f.png', name: 'Mark', calendly: 'https://calendly.com/jhenry012/30min', amount: 5000 },
+    { id: 2, image: 'https://i.gyazo.com/c72ddbe7b1ca3cdd4af2b719402055cd.png', name: 'Sienna', calendly: 'https://calendly.com/jhenry012/30min', amount: 6000 },
+    { id: 3, image: 'https://i.gyazo.com/66e2d2746a189e6760fb58981d9678a1.png', name: 'Rachel', calendly: 'https://calendly.com/jhenry012/30min', amount: 7000 },
+    { id: 4, image: 'https://i.gyazo.com/91d436074a84f68d1a5aa920cfff0d79.png', name: 'Carlos', calendly: 'https://calendly.com/jhenry012/30min', amount: 8000 },
+    { id: 5, image: 'https://i.gyazo.com/f217eaebc1b1c7723e027492cce74e0f.png', name: 'Celeste', calendly: 'https://calendly.com/jhenry012/30min', amount: 9000 },
+    { id: 6, image: 'https://i.gyazo.com/8d5a68f4bdb15b8cfc7771d1aac1a66e.png', name: 'Alyssa', calendly: 'https://calendly.com/jhenry012/30min', amount: 10000 },
 ];
 
 const PaymentForm = ({ amount, onPaymentSuccess }) => {
