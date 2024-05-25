@@ -2,10 +2,11 @@ import axios from 'axios';
 import sessionStorage from './sessionStorage.js';
 
 export async function sendMessages(chatId, message) {
+    console.log("hi");
     try {
 
         let token = sessionStorage.sessionKey;
-        const response = await axios.post(`https://api.medconnectapp.org/api/sendMessage`, { token: token, chatId: chatId, message: message});
+        const response = await axios.post(`http://localhost:5000/api/sendMessage`, { token: token, chatId: chatId, message: message});
         console.log("Sent messages successfully");
         return response;
 

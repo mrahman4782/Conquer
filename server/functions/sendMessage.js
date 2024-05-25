@@ -41,17 +41,17 @@ export async function sendMessage(message, session, chatId) {
       // history.push(messageObj)
 
 
-      if (!checkUserProfile.data.userOfChatGroupId.includes(chatId)){
-        response.status = 403;
-        response.data = 'User not in groupchat';
-      }
-      else {
+      // if (!checkUserProfile.data.userOfChatGroupId.includes(chatId)){
+      //   response.status = 403;
+      //   response.data = 'User not in groupchat';
+      // }
+      // else {
         await db.collection('chats').doc(chatId).update({
           messages: FieldValue.arrayUnion(messageObj)
         });
         response.status = 200;
         response.data = checkUserLogin;
-      }
+      //}
 
     } catch (error) {
       response.status = 408;
